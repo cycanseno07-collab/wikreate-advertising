@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WiKreate Advertising Services</title>
+  <title>WiKreate Advertising Services | Powered by LOGS Trading</title>
   <style>
     :root {
       --primary: #f5a623;
       --primary-dark: #d48b17;
-      --dark: #2c2d30;
-      --light-bg: #f8f9fa;
-      --text: #333333;
+      --dark: #1e1f22;
+      --dark-surface: #2b2c30;
+      --light-bg: #f7f8fa;
+      --card-bg: #ffffff;
+      --text: #2c3e50;
+      --text-muted: #6b7280;
       --white: #ffffff;
     }
 
@@ -18,7 +21,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
@@ -27,39 +30,100 @@
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
     header {
       background-color: var(--dark);
       color: var(--white);
-      padding: 1rem 2rem;
+      padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
     }
 
     .brand-name {
       font-size: 1.4rem;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
 
     .brand-name span {
       color: var(--primary);
     }
 
+    .nav-actions {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--white);
+      border: 1.5px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--dark);
+    }
+
+    /* Hero */
     .hero {
-      background: linear-gradient(rgba(44, 45, 48, 0.92), rgba(44, 45, 48, 0.92)),
-                  radial-gradient(circle, var(--primary) 10%, transparent 20%);
-      background-size: cover;
+      background: linear-gradient(rgba(30, 31, 34, 0.94), rgba(30, 31, 34, 0.94)),
+                  radial-gradient(circle, #3d3f44 0%, #17181a 100%);
       color: var(--white);
       text-align: center;
       padding: 4.5rem 1.5rem;
     }
 
+    .tagline {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.15);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(245, 166, 35, 0.35);
+    }
+
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
     }
 
     .hero h1 span {
@@ -68,31 +132,23 @@
 
     .hero p {
       font-size: 1.15rem;
-      max-width: 600px;
-      margin: 0 auto 1.5rem auto;
-      color: #e0e0e0;
+      max-width: 680px;
+      margin: 0 auto 2rem auto;
+      color: #d1d5db;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: var(--primary);
-      color: var(--dark);
-      padding: 0.8rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background-color 0.2s ease;
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .btn:hover {
-      background-color: var(--primary-dark);
-      color: var(--white);
-    }
-
+    /* Layout */
     .container {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
     }
 
     .section-title {
@@ -102,20 +158,27 @@
 
     .section-title h2 {
       font-size: 2rem;
+      font-weight: 700;
       color: var(--dark);
+      margin-bottom: 0.5rem;
     }
 
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    /* Services Grid */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
     }
 
     .card {
-      background: var(--white);
-      padding: 2rem 1.5rem;
+      background: var(--card-bg);
+      padding: 1.8rem 1.4rem;
       border-radius: 8px;
-      border-top: 5px solid var(--primary);
+      border-top: 4px solid var(--primary);
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: transform 0.2s ease;
     }
@@ -125,78 +188,304 @@
     }
 
     .card h3 {
-      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
       color: var(--dark);
+      margin-bottom: 0.5rem;
     }
 
-    .contact-box {
-      text-align: center;
-      background-color: var(--white);
-      padding: 3rem 1.5rem;
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Showcase / Spotlight */
+    .showcase-banner {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .showcase-content h3 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .showcase-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .showcase-tags span {
+      background: #f1f3f5;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #495057;
+    }
+
+    .showcase-preview-box {
+      background: linear-gradient(135deg, #2b2c30, #17181a);
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-top: 3rem;
+      padding: 2rem;
+      color: var(--white);
+      text-align: center;
+      border: 2px dashed var(--primary);
     }
 
+    .showcase-preview-box h4 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Branches Section */
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .branch-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .branch-card h3 {
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .branch-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: #4b5563;
+    }
+
+    .branch-card a {
+      color: #0284c7;
+      font-weight: 600;
+    }
+
+    .branch-card a:hover {
+      text-decoration: underline;
+    }
+
+    .branch-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    /* Floating Chat */
+    .float-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: var(--dark);
+      padding: 0.85rem 1.4rem;
+      border-radius: 30px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .float-chat:hover {
+      transform: scale(1.05);
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    /* Footer */
     footer {
       background-color: var(--dark);
-      color: #aaa;
+      color: #888888;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2.5rem 1.5rem;
       font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .showcase-banner {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="brand-name"><span>Wi</span>Kreate</div>
-    <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Message Us</a>
+    <div class="nav-actions">
+      <a href="tel:09171307321" class="btn btn-outline">Call: 0917 130 7321</a>
+      <a href="https://m.me/100063829038641" target="_blank" class="btn btn-primary">Message Us</a>
+    </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
+    <div class="tagline">PRINTING & CUSTOM ADVERTISING</div>
     <h1><span>WiKreate</span> Advertising Services</h1>
-    <p>Powered by LOGS Trading. High-quality commercial printing and customized branding solutions.</p>
-    <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Get a Quote</a>
+    <p>Powered by LOGS Trading. Specialized in customized acrylic plaques with wooden bases, tournament awards, full sublimation jerseys, DTF apparel, and commercial banners.</p>
+    <div class="hero-cta">
+      <a href="https://m.me/100063829038641" target="_blank" class="btn btn-primary">Chat on Facebook</a>
+      <a href="mailto:wikreateadvertisingservices@gmail.com" class="btn btn-outline">Email Inquiries</a>
+    </div>
   </section>
 
   <main class="container">
+    <!-- Services -->
     <div class="section-title">
       <h2>Services Offered</h2>
+      <p>Custom branding, apparel, and commercial event production.</p>
     </div>
 
     <div class="services-grid">
       <div class="card">
+        <h3>Plaques & Trophies</h3>
+        <p>Custom laser-cut acrylic plaques, solid wood bases, tournament MVP awards, and corporate citations.</p>
+      </div>
+      <div class="card">
         <h3>Sublimation Printing</h3>
-        <p>Vibrant, full-color prints ideal for jerseys, activewear, and customized polyester fabrics.</p>
+        <p>Full-dye sports jerseys, team singlets, company polo shirts, marathon wear, and non-fade activewear.</p>
       </div>
       <div class="card">
         <h3>DTF Printing</h3>
-        <p>Direct-to-Film high-definition garment printing for t-shirts, hoodies, and cotton apparel.</p>
+        <p>High-resolution Direct-to-Film transfers for cotton shirts, company jackets, hoodies, and tote bags.</p>
       </div>
       <div class="card">
         <h3>Tarpaulin Printing</h3>
-        <p>Durable, weather-resistant banners for events, store openings, and outdoor advertising.</p>
+        <p>Durable, weatherproof vinyl banners for festivals, store openings, corporate events, and campaigns.</p>
       </div>
       <div class="card">
         <h3>Label Stickers</h3>
-        <p>Custom-cut waterproof and paper label stickers for packaging, product labels, and promos.</p>
-      </div>
-      <div class="card">
-        <h3>Plaques & Awards</h3>
-        <p>Custom recognition awards, trophies, and formal corporate plaques.</p>
+        <p>Waterproof vinyl labels, packaging stickers, logo decals, and contour-cut promotional stickers.</p>
       </div>
     </div>
 
-    <section class="contact-box">
-      <h2>Ready to order?</h2>
-      <p style="margin: 0.8rem 0 1.5rem;">Reach out directly through our Facebook page for inquiries and design proofs.</p>
-      <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Chat on Facebook</a>
-    </section>
+    <!-- Product Spotlight: Plaques with Wooden Base -->
+    <div class="showcase-banner">
+      <div class="showcase-content">
+        <span class="tagline">FEATURED PRODUCT</span>
+        <h3>Custom Plaques with Wooden Base</h3>
+        <p>Precision-cut acrylic trophy plates mounted on polished natural wooden bases. Built for league tournaments, sports awards, municipal celebrations, and corporate recognition.</p>
+        <div class="showcase-tags">
+          <span>MVP Sports Trophies</span>
+          <span>Volleyball & Basketball Leagues</span>
+          <span>Championship Awards</span>
+          <span>Corporate Citations</span>
+        </div>
+        <a href="https://m.me/100063829038641" target="_blank" class="btn btn-primary">Order Custom Plaques</a>
+      </div>
+      <div class="showcase-preview-box">
+        <h4>Trophy & Plaque Fabrication</h4>
+        <p style="color: #cbd5e1; margin-top: 0.5rem; font-size: 0.95rem;">
+          Custom engraving, multi-color UV acrylic printing, and solid wooden mounts crafted to your exact event specifications.
+        </p>
+        <p style="color: var(--primary); margin-top: 1rem; font-weight: 700;">#wikreateallforyou</p>
+      </div>
+    </div>
+
+    <!-- Branches Section -->
+    <div class="section-title" style="margin-top: 4rem;">
+      <h2>Our Branches & Locations</h2>
+      <p>Drop a message or contact our team directly at your nearest branch.</p>
+    </div>
+
+    <div class="branches-grid">
+      <!-- Pajac, Lapu-Lapu City -->
+      <div class="branch-card">
+        <div>
+          <h3>Pajac Branch</h3>
+          <p><strong>Location:</strong> San Ricardo Arcade, Pajac, Lapu-Lapu City</p>
+          <p><strong>Mobile:</strong> <a href="tel:09176589323">0917 658 9323</a> &bull; <a href="tel:09171307321">0917 130 7321</a></p>
+          <p><strong>Email:</strong> <a href="mailto:wikreateadvertisingservices@gmail.com">wikreateadvertisingservices@gmail.com</a></p>
+        </div>
+        <div class="branch-actions">
+          <a href="tel:09176589323" class="btn btn-primary" style="flex: 1;">Call</a>
+          <a href="https://m.me/100063829038641" target="_blank" class="btn btn-outline" style="border-color: #d1d5db; color: var(--dark); flex: 1;">Messenger</a>
+        </div>
+      </div>
+
+      <!-- Basak, Lapu-Lapu City -->
+      <div class="branch-card">
+        <div>
+          <h3>Basak Branch</h3>
+          <p><strong>Location:</strong> Kagudoy Road, Basak, Lapu-Lapu City</p>
+          <p><strong>Mobile:</strong> <a href="tel:09176589323">0917 658 9323</a> &bull; <a href="tel:09171307321">0917 130 7321</a></p>
+          <p><strong>Email:</strong> <a href="mailto:wikreateadvertisingservices@gmail.com">wikreateadvertisingservices@gmail.com</a></p>
+        </div>
+        <div class="branch-actions">
+          <a href="tel:09176589323" class="btn btn-primary" style="flex: 1;">Call</a>
+          <a href="https://m.me/100063829038641" target="_blank" class="btn btn-outline" style="border-color: #d1d5db; color: var(--dark); flex: 1;">Messenger</a>
+        </div>
+      </div>
+
+      <!-- Pinamungajan Branch -->
+      <div class="branch-card">
+        <div>
+          <h3>Pinamungajan Branch</h3>
+          <p><strong>Location:</strong> Dakit, Pinamungajan, Cebu</p>
+          <p><strong>Mobile:</strong> <a href="tel:09396525216">0939 652 5216</a> &bull; <a href="tel:09171307321">0917 130 7321</a></p>
+          <p><strong>Email:</strong> <a href="mailto:wikreate.pinamungajan@gmail.com">wikreate.pinamungajan@gmail.com</a></p>
+        </div>
+        <div class="branch-actions">
+          <a href="tel:09396525216" class="btn btn-primary" style="flex: 1;">Call</a>
+          <a href="https://m.me/100063829038641" target="_blank" class="btn btn-outline" style="border-color: #d1d5db; color: var(--dark); flex: 1;">Messenger</a>
+        </div>
+      </div>
+    </div>
   </main>
 
+  <!-- Floating Messenger Button -->
+  <a href="https://m.me/100063829038641" target="_blank" class="float-chat">
+    <span>💬</span> Inquire on Messenger
+  </a>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2026 WiKreate Advertising Services Powered by LOGS Trading. All Rights Reserved.</p>
+    <p style="margin-top: 0.4rem;">
+      <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank">Facebook Profile</a> &bull; 
+      <a href="mailto:wikreateadvertisingservices@gmail.com">Email Us</a>
+    </p>
   </footer>
 
 </body>
