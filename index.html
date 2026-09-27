@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WiKreate Advertising Services</title>
+  <style>
+    :root {
+      --primary: #f5a623;
+      --primary-dark: #d48b17;
+      --dark: #2c2d30;
+      --light-bg: #f8f9fa;
+      --text: #333333;
+      --white: #ffffff;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .brand-name span {
+      color: var(--primary);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(44, 45, 48, 0.92), rgba(44, 45, 48, 0.92)),
+                  radial-gradient(circle, var(--primary) 10%, transparent 20%);
+      background-size: cover;
+      color: var(--white);
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+      color: #e0e0e0;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--dark);
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 8px;
+      border-top: 5px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .contact-box {
+      text-align: center;
+      background-color: var(--white);
+      padding: 3rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-top: 3rem;
+    }
+
+    footer {
+      background-color: var(--dark);
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-name"><span>Wi</span>Kreate</div>
+    <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Message Us</a>
+  </header>
+
+  <section class="hero">
+    <h1><span>WiKreate</span> Advertising Services</h1>
+    <p>Powered by LOGS Trading. High-quality commercial printing and customized branding solutions.</p>
+    <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Get a Quote</a>
+  </section>
+
+  <main class="container">
+    <div class="section-title">
+      <h2>Services Offered</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="card">
+        <h3>Sublimation Printing</h3>
+        <p>Vibrant, full-color prints ideal for jerseys, activewear, and customized polyester fabrics.</p>
+      </div>
+      <div class="card">
+        <h3>DTF Printing</h3>
+        <p>Direct-to-Film high-definition garment printing for t-shirts, hoodies, and cotton apparel.</p>
+      </div>
+      <div class="card">
+        <h3>Tarpaulin Printing</h3>
+        <p>Durable, weather-resistant banners for events, store openings, and outdoor advertising.</p>
+      </div>
+      <div class="card">
+        <h3>Label Stickers</h3>
+        <p>Custom-cut waterproof and paper label stickers for packaging, product labels, and promos.</p>
+      </div>
+      <div class="card">
+        <h3>Plaques & Awards</h3>
+        <p>Custom recognition awards, trophies, and formal corporate plaques.</p>
+      </div>
+    </div>
+
+    <section class="contact-box">
+      <h2>Ready to order?</h2>
+      <p style="margin: 0.8rem 0 1.5rem;">Reach out directly through our Facebook page for inquiries and design proofs.</p>
+      <a href="https://www.facebook.com/profile.php?id=100063829038641" target="_blank" class="btn">Chat on Facebook</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WiKreate Advertising Services Powered by LOGS Trading. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
